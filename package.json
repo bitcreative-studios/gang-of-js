@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "doc": "jsdoc -c jsdoc.json",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -19,6 +20,7 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "jest": "^24.9.0",
+    "jsdoc": "^3.6.3",
     "prettier": "^1.19.1"
   },
   "config": {
