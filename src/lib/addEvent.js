@@ -6,9 +6,14 @@
  * @param {string} type Name of the event to attach to
  * @param {Function} func The function to call
  * @return {void}
+ *
+ * @example
+ * const elm = document.querySelector("#myElement");
+ * const handleClickEvent = evt => console.log(evt);
+ *
+ * addEvent(elm,"click",handleClickEvent);
+ * @todo Implement function
  */
-const addEvent = (obj, type, func) => {
-  // TODO
-}
+const addEvent = (obj, type, func) => {}
 
 export default addEvent
