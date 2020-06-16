@@ -9,6 +9,7 @@
   "scripts": {
     "docs": "jsdoc -c jsdoc.json",
     "serve": "cd docs && npx live-server",
+    "deploy": "gh-pages -d docs",
     "test": "jest",
     "test:watch": "jest --watch"
   },
