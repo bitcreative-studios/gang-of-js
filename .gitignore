@@ -1,5 +1,8 @@
 # Dependencies
 node_modules
 
+# Generated docs
+docs
+
 # Webstorm files
 .idea
