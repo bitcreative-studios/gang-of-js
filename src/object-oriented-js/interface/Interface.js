@@ -38,13 +38,42 @@ class Interface {
     }
     this.name = name
     this.methods = []
-    for (const method of methods) {
+    methods.forEach(method => {
       if (typeof method !== "string")
         throw new Error(
           "Interface constructor expects method names to be passed in as a string"
         )
       this.methods.push(method)
+    })
+  }
+
+  /**
+   * Ensures that the given class implements the specified Interfaces
+   *
+   * @param {Object} object The class to be validated for proper interface implementation
+   * @param {Interface} interfaces A non-empty, variable list of the interfaces required by the object
+   */
+  static ensureImplements(object, ...interfaces) {
+    if (arguments.length < 2) {
+      throw new Error(
+        `Function Interface.ensureImplements called with ${arguments.length}, but expected at least 2.`
+      )
     }
+
+    interfaces.forEach(function(intrface) {
+      if (intrface.constructor !== Interface) {
+        throw new Error(
+          "Function Interface.ensureImplements should be called with instances of the Interface class"
+        )
+      }
+      intrface.methods.forEach(function(method) {
+        if (!object[method] || typeof object[method] !== "function") {
+          throw new Error(`
+          Function Interface.ensureImplements: object does not implement the ${intrface.name} interface. Method ${method} was not found.
+          `)
+        }
+      })
+    })
   }
 }
 
